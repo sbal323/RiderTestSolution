@@ -1,0 +1,11 @@
+@model AspNetCore.Models.RandomMovieModel
+@{
+    Layout = "_Layout";
+}
+
+<h3>@Model.Title</h3>
+<div class="badge badge-warning">Customized </div>
+<span class="text-body">@Model.RandomMovie.Name </span><span class="badge badge-info">@Model.RandomMovie.Id</span>
+@section BottomFooter {
+    <p>Lanteria&trade; 2008 - 2019</p>
+}

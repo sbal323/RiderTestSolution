@@ -1,0 +1,9 @@
+@model AspNetCore.Models.Movie
+
+@{
+    ViewData["Title"] = "Movie of the day";
+    Layout = "_Layout";
+}
+<h3>Movie of the day</h3>
+
+<span class="text-body">@Model.Name </span><span class="badge badge-info">@Model.Id</span>

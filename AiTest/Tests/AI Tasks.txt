@@ -1,0 +1,12 @@
+About the classification learning algorithm
+------------------------------
+Classification is a machine learning algorithm that uses data to determine the category, type, or class of an item or row of data. For example, you can use classification to:
+
+Identify sentiment as positive or negative.
+Classify email as spam, junk, or good.
+Determine whether a patient's lab sample is cancerous.
+Categorize customers by their propensity to respond to a sales campaign.
+Classification algorithms are frequently one of the following types:
+
+Binary: either A or B.
+Multiclass: multiple categories that can be predicted by using a single model.

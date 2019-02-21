@@ -1,0 +1,15 @@
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\AiTest.deps.json
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\AiTest.runtimeconfig.json
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\AiTest.runtimeconfig.dev.json
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\AiTest.dll
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\AiTest.pdb
+C:\Users\bal\RiderProjects\TestSolution\AiTest\obj\Debug\netcoreapp2.2\AiTest.csprojAssemblyReference.cache
+C:\Users\bal\RiderProjects\TestSolution\AiTest\obj\Debug\netcoreapp2.2\AiTest.csproj.CoreCompileInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\AiTest\obj\Debug\netcoreapp2.2\AiTest.AssemblyInfoInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\AiTest\obj\Debug\netcoreapp2.2\AiTest.AssemblyInfo.cs
+C:\Users\bal\RiderProjects\TestSolution\AiTest\obj\Debug\netcoreapp2.2\AiTest.dll
+C:\Users\bal\RiderProjects\TestSolution\AiTest\obj\Debug\netcoreapp2.2\AiTest.pdb
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\Tests\SentimentTest(binaryClassification)\wikipedia-detox-250-line-data.tsv
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\Tests\SentimentTest(binaryClassification)\wikipedia-detox-250-line-test.tsv
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\Tests\IssuesTest(multiclassClassification)\issues-test.tsv
+C:\Users\bal\RiderProjects\TestSolution\AiTest\bin\Debug\netcoreapp2.2\Tests\IssuesTest(multiclassClassification)\issues_train.tsv

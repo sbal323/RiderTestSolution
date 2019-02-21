@@ -1,0 +1,28 @@
+@page
+@model AspNetCore.Pages.TestModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    //Layout = null;
+    var title = "Let us call you back!";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@title</title>
+</head>
+<body>
+<div>
+    <p>
+        @title
+    </p>
+    @Html.Raw(Model.Result)
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <div><label asp-for="Contact.Name"></label>: <input asp-for="Contact.Name" /></div>
+        <div>Email: <input asp-for="Contact.Email" /></div>
+        <button type="submit">SEND</button>
+    </form>
+</div>
+</body>
+</html>

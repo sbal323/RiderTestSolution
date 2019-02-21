@@ -1,0 +1,21 @@
+@model List<AspNetCore.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movies Page";
+}
+
+<h2>Movies</h2>
+<div class="row">
+@foreach (var movie in Model)
+{
+    <div class="col-3">
+        <div class="card bg-light mb-3" style="max-width: 18rem; min-width: 120px;">
+            <div class="card-header">@movie.Name</div>
+            <div class="card-body">
+                <h5 class="card-title">Votes</h5>
+                <p class="card-text"><span class="badge badge-info">@movie.Id</span></p>
+            </div>
+        </div>
+    </div>
+}
+</div>

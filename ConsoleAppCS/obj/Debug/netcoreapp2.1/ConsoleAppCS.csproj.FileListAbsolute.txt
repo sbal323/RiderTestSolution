@@ -1,0 +1,12 @@
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\bin\Debug\netcoreapp2.1\data.xml
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\bin\Debug\netcoreapp2.1\ConsoleAppCS.deps.json
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\bin\Debug\netcoreapp2.1\ConsoleAppCS.runtimeconfig.json
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\bin\Debug\netcoreapp2.1\ConsoleAppCS.runtimeconfig.dev.json
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\bin\Debug\netcoreapp2.1\ConsoleAppCS.dll
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\bin\Debug\netcoreapp2.1\ConsoleAppCS.pdb
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\obj\Debug\netcoreapp2.1\ConsoleAppCS.csprojAssemblyReference.cache
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\obj\Debug\netcoreapp2.1\ConsoleAppCS.csproj.CoreCompileInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\obj\Debug\netcoreapp2.1\ConsoleAppCS.AssemblyInfoInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\obj\Debug\netcoreapp2.1\ConsoleAppCS.AssemblyInfo.cs
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\obj\Debug\netcoreapp2.1\ConsoleAppCS.dll
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppCS\obj\Debug\netcoreapp2.1\ConsoleAppCS.pdb

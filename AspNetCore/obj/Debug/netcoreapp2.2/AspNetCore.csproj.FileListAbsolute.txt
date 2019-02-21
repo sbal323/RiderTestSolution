@@ -1,0 +1,11 @@
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.2\AspNetCore.deps.json
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.2\AspNetCore.runtimeconfig.json
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.2\AspNetCore.runtimeconfig.dev.json
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.2\AspNetCore.dll
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.2\AspNetCore.pdb
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.2\AspNetCore.csprojAssemblyReference.cache
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.2\AspNetCore.csproj.CoreCompileInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.2\AspNetCore.AssemblyInfoInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.2\AspNetCore.AssemblyInfo.cs
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.2\AspNetCore.dll
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.2\AspNetCore.pdb

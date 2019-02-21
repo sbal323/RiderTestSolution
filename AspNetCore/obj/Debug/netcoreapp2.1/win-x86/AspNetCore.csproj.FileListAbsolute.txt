@@ -1,0 +1,14 @@
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\hostpolicy.dll
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\hostfxr.dll
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\AspNetCore.exe
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\AspNetCore.deps.json
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\AspNetCore.runtimeconfig.json
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\AspNetCore.runtimeconfig.dev.json
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\AspNetCore.dll
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\bin\Debug\netcoreapp2.1\win-x86\AspNetCore.pdb
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.1\win-x86\AspNetCore.csprojAssemblyReference.cache
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.1\win-x86\AspNetCore.csproj.CoreCompileInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.1\win-x86\AspNetCore.AssemblyInfoInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.1\win-x86\AspNetCore.AssemblyInfo.cs
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.1\win-x86\AspNetCore.dll
+C:\Users\bal\RiderProjects\TestSolution\AspNetCore\obj\Debug\netcoreapp2.1\win-x86\AspNetCore.pdb

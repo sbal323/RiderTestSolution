@@ -1,0 +1,11 @@
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\bin\Debug\netcoreapp2.2\ConsoleAppVB.deps.json
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\bin\Debug\netcoreapp2.2\ConsoleAppVB.runtimeconfig.json
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\bin\Debug\netcoreapp2.2\ConsoleAppVB.runtimeconfig.dev.json
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\bin\Debug\netcoreapp2.2\ConsoleAppVB.dll
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\bin\Debug\netcoreapp2.2\ConsoleAppVB.pdb
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\obj\Debug\netcoreapp2.2\ConsoleAppVB.vbprojAssemblyReference.cache
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\obj\Debug\netcoreapp2.2\ConsoleAppVB.vbproj.CoreCompileInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\obj\Debug\netcoreapp2.2\ConsoleAppVB.AssemblyInfoInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\obj\Debug\netcoreapp2.2\ConsoleAppVB.AssemblyInfo.vb
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\obj\Debug\netcoreapp2.2\ConsoleAppVB.dll
+C:\Users\bal\RiderProjects\TestSolution\ConsoleAppVB\obj\Debug\netcoreapp2.2\ConsoleAppVB.pdb

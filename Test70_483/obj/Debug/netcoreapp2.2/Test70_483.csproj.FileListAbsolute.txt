@@ -1,0 +1,11 @@
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\bin\Debug\netcoreapp2.2\Test70_483.deps.json
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\bin\Debug\netcoreapp2.2\Test70_483.runtimeconfig.json
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\bin\Debug\netcoreapp2.2\Test70_483.runtimeconfig.dev.json
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\bin\Debug\netcoreapp2.2\Test70_483.dll
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\bin\Debug\netcoreapp2.2\Test70_483.pdb
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\obj\Debug\netcoreapp2.2\Test70_483.csprojAssemblyReference.cache
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\obj\Debug\netcoreapp2.2\Test70_483.csproj.CoreCompileInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\obj\Debug\netcoreapp2.2\Test70_483.AssemblyInfoInputs.cache
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\obj\Debug\netcoreapp2.2\Test70_483.AssemblyInfo.cs
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\obj\Debug\netcoreapp2.2\Test70_483.dll
+C:\Users\bal\RiderProjects\TestSolution\Test70_483\obj\Debug\netcoreapp2.2\Test70_483.pdb

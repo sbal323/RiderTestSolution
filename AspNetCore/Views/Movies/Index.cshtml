@@ -1,0 +1,10 @@
+@using AspNetCore.Constants
+@model AspNetCore.Models.MoviesModel
+
+<h2>@Model.Title</h2>
+<div class="row">
+    @foreach (var movie in Model.Movies)
+    {
+        Html.RenderPartial(PartialViewNames.SingleMovieBlock, movie);
+    }
+</div>
