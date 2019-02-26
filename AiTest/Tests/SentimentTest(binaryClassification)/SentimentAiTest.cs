@@ -13,7 +13,7 @@ namespace AiTest.Tests
         private ITransformer _model;
         private readonly MLContext _context = new MLContext(seed: 0);
         private TextLoader _textLoader;
-        private const string RootFolder = ".\\Tests\\SentimentTest(binaryClassification)";
+        private const string RootFolder = "./Tests/SentimentTest(binaryClassification)";
         private const string ModelFileName = "model.zip";
         private const string TrainDataFile = "wikipedia-detox-250-line-data.tsv";
         private const string EvaluateDataFile = "wikipedia-detox-250-line-test.tsv";
@@ -29,7 +29,7 @@ namespace AiTest.Tests
                 separatorChar: '\t',
                 hasHeader: true
             );
-            IDataView dataView =_textLoader.Read($"{RootFolder}\\{TrainDataFile}");
+            IDataView dataView =_textLoader.Read($"{RootFolder}/{TrainDataFile}");
             var pipeline =
                 _context.Transforms.Text.FeaturizeText(inputColumnName: "SentimentText", outputColumnName: "Features")
                     .Append(_context.BinaryClassification.Trainers.FastTree(numLeaves: 50, numTrees: 50, minDatapointsInLeaves: 20));
@@ -45,7 +45,7 @@ namespace AiTest.Tests
 
         void IAiTest.Evaluate()
         {
-            var dataView = _textLoader.Read($"{RootFolder}\\{EvaluateDataFile}");
+            var dataView = _textLoader.Read($"{RootFolder}/{EvaluateDataFile}");
             Console.WriteLine("=============== Evaluating Model accuracy with Test data===============");
             var predictions = _model.Transform(dataView);
             var metrics = _context.BinaryClassification.Evaluate(predictions, "Label");
@@ -56,7 +56,7 @@ namespace AiTest.Tests
             Console.WriteLine($"Auc: {metrics.Auc:P2}");
             Console.WriteLine($"F1Score: {metrics.F1Score:P2}");
             Console.WriteLine("=============== End of model evaluation ===============");
-            Utility.SaveModelAsFile(_context, _model, $"{RootFolder}\\{ModelFileName}");
+            Utility.SaveModelAsFile(_context, _model, $"{RootFolder}/{ModelFileName}");
         }
         void IAiTest.Predict()
         {

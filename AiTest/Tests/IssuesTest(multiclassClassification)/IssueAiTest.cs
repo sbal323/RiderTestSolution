@@ -13,7 +13,7 @@ namespace AiTest.Tests
         private ITransformer _model;
         private readonly MLContext _context = new MLContext(seed: 0);
         private TextLoader _textLoader;
-        private const string RootFolder = ".\\Tests\\IssuesTest(multiclassClassification)";
+        private const string RootFolder = "./Tests/IssuesTest(multiclassClassification)";
         private const string ModelFileName = "model.zip";
         private const string TrainDataFile = "issues_train.tsv";
         private const string EvaluateDataFile = "issues-test.tsv";
@@ -21,7 +21,7 @@ namespace AiTest.Tests
         {
             Console.WriteLine("=============== Multiclass Classification - Issue Area Prediction ===============");
             _textLoader = _context.Data.CreateTextLoader<GitHubIssue>(hasHeader: true);
-            IDataView dataView =_textLoader.Read($"{RootFolder}\\{TrainDataFile}");
+            IDataView dataView =_textLoader.Read($"{RootFolder}/{TrainDataFile}");
             var pipeline =
                 _context.Transforms.Conversion.MapValueToKey(inputColumnName: "Area", outputColumnName: "Label")
                     .Append(_context.Transforms.Text.FeaturizeText(inputColumnName: "Title",
@@ -44,7 +44,7 @@ namespace AiTest.Tests
 
         void IAiTest.Evaluate()
         {
-            var dataView = _textLoader.Read($"{RootFolder}\\{EvaluateDataFile}");
+            var dataView = _textLoader.Read($"{RootFolder}/{EvaluateDataFile}");
             Console.WriteLine("=============== Evaluating Model accuracy with Test data===============");
             var predictions = _model.Transform(dataView);
             var metrics = _context.MulticlassClassification.Evaluate(predictions, "Label");
@@ -57,7 +57,7 @@ namespace AiTest.Tests
             Console.WriteLine($"*       LogLoss:          {metrics.LogLoss:#.###}");
             Console.WriteLine($"*       LogLossReduction: {metrics.LogLossReduction:#.###}");
             Console.WriteLine($"*************************************************************************************************************");
-            Utility.SaveModelAsFile(_context, _model, $"{RootFolder}\\{ModelFileName}");
+            Utility.SaveModelAsFile(_context, _model, $"{RootFolder}/{ModelFileName}");
         }
 
         void IAiTest.Predict()
