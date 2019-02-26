@@ -18,8 +18,8 @@ namespace AspNetCore.Filters
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            context.HttpContext.Response.StatusCode = 500;
-            context.Result = new JsonResult(new {Error="Filter error"});
+//            context.HttpContext.Response.StatusCode = 500;
+//            context.Result = new JsonResult(new {Error="Filter error"});
             base.OnActionExecuting(context);
         }
     }

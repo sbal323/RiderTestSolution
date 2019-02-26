@@ -43,7 +43,9 @@ namespace AspNetCore.Controllers
             {
                 return Privacy();
             }
-            return View();
+            var model = new AboutModel( "About") {Email = new EmailData(){To = "sbal323@gmail.com", Subject = "Sales request", Body = "Request the price list"}};
+
+            return View(model);
         }
 
         public IActionResult Privacy()

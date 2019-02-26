@@ -7,7 +7,7 @@ namespace AspNetCore.Models
         string CopyRight { get; }
         string Title { get; }
     }
-    public abstract class BaseModel: IBaseModel
+    public class BaseModel: IBaseModel
     {
         public string Title { get; }
 
@@ -15,7 +15,7 @@ namespace AspNetCore.Models
 
         string IBaseModel.CopyRight => $"&copy; {DateTime.Today.Year} - AspNetCore";
 
-        protected BaseModel(string title)
+        public BaseModel(string title)
         {
             Title = title;
         }
