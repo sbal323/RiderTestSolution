@@ -24,10 +24,9 @@ namespace AiTest
                 //multi-class classification
                 new IssueAiTest()
             };
-            var tester = new AiTester();
             foreach (var test in tests)
             {
-                tester.SetTest(test).Execute();
+                AiTester.SetTest(test).Execute();
             }
         }
     }

@@ -8,12 +8,6 @@ namespace AiTest
         {
             _test = test;
         }
-
-        public AiTester()
-        {
-            _test = new StubAiTest();
-        }
-
         public void Execute()
         {
             _test.Train();
@@ -21,7 +15,7 @@ namespace AiTest
             _test.Predict();
         }
 
-        public AiTester SetTest(IAiTest test)
+        public static AiTester SetTest(IAiTest test)
         {
             return new AiTester(test);
         }
