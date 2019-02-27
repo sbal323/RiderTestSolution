@@ -16,11 +16,12 @@ namespace AiTest
             {
 //                //clustering
 //                new IrisAiTest(),
-//                //regression
-//                new SalaryAiTest(),
+                //regression
+                new SalaryAiTest(),
+                new PriceAiTest(),
                 //binary classification
                 new SentimentAiTest(),
-                //multiclass classification
+                //multi-class classification
                 new IssueAiTest()
             };
             var tester = new AiTester();
