@@ -23,6 +23,7 @@ namespace AspNetCore.TagHelpers
                 mailto = $"{mailto}?subject={subject}&body={body}";
             }
             output.Attributes.Clear();
+            output.Attributes.Add("target","_top");
             output.Attributes.Add("href",mailto);
             output.Content.Clear();
             output.Content.AppendFormat("Email {0}", to);

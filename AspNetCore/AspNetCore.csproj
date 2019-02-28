@@ -17,6 +17,7 @@
     <ItemGroup>
       <Folder Include="Areas\Music" />
       <Folder Include="Customizations\Views" />
+      <Folder Include="Views\Shared\Components" />
     </ItemGroup>
 
 
