@@ -5,6 +5,9 @@ namespace AiTest.Tests.IrisTest
     public class IrisPrediction
     {
         [ColumnName("PredictedLabel")]
-        public string PredictedLabels;
+        public uint PredictedClusterId;
+       
+        [ColumnName("Score")]
+        public float[] Distances;
     }
 }

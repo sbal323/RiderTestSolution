@@ -14,8 +14,8 @@ namespace AiTest
         {
             var tests = new List<IAiTest>
             {
-//                //clustering
-//                new IrisAiTest(),
+                //clustering
+                new IrisAiTest(),
                 //regression
                 new SalaryAiTest(),
                 new PriceAiTest(),

@@ -2,7 +2,6 @@ using Microsoft.ML.Data;
 
 namespace AiTest.Tests.IrisTest
 {
-    //длину чашелистика, ширину чашелистика, длину лепестка, ширину лепестка и тип цветка ириса
     public class IrisData
     {
         [LoadColumn(0)]
@@ -16,8 +15,5 @@ namespace AiTest.Tests.IrisTest
 
         [LoadColumn(3)]
         public float PetalWidth;
-
-        [LoadColumn(4)]
-        public string Label;
     }
 }

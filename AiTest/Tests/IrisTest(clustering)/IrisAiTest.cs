@@ -1,29 +1,44 @@
 using System;
+using System.Diagnostics;
+using Microsoft.Data.DataView;
 using Microsoft.ML;
+using Microsoft.ML.Core.Data;
 using Microsoft.ML.Data;
 using Microsoft.ML.Transforms.Conversions;
 
 namespace AiTest.Tests.IrisTest
 {
-    public class IrisAiTest:IAiTest
+    public class IrisAiTest : IAiTest
     {
-        private TransformerChain<KeyToValueMappingTransformer> _model;
-        private MLContext _context;
+        private ITransformer _model;
+        private readonly MLContext _context = new MLContext(seed: 0);
+        private TextLoader _textLoader;
+        private const string RootFolder = "./Tests/IrisTest(clustering)";
+        private const string ModelFileName = "model.zip";
+        private const string TrainDataFile = "iris-data.txt";
+
         void IAiTest.Train()
         {
-            _context = new MLContext();
-            var reader = _context.Data.CreateTextLoader<IrisData>(separatorChar: ',', hasHeader: true);
-            var trainingDataView = reader.Read(".\\Tests\\IrisTest(clustering)\\iris-data.txt");
-            var pipeline = _context.Transforms.Conversion.MapValueToKey("Label")
-                .Append(_context.Transforms.Concatenate("Features", "SepalLength", "SepalWidth", "PetalLength", "PetalWidth"))
-                .Append(_context.MulticlassClassification.Trainers.StochasticDualCoordinateAscent(labelColumn: "Label", featureColumn: "Features"))
-                .Append(_context.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
-            _model = pipeline.Fit(trainingDataView);
+            Console.WriteLine("=============== Clustering task - Iris Prediction ===============");
+            _textLoader = _context.Data.CreateTextLoader<IrisData>(separatorChar: ',', hasHeader: false);
+            IDataView dataView = _textLoader.Read($"{RootFolder}/{TrainDataFile}");
+            var pipeline = _context.Transforms.Concatenate("Features", "SepalLength", "SepalWidth", "PetalLength",
+                    "PetalWidth")
+                .Append(_context.Clustering.Trainers.KMeans(featureColumn: "Features", clustersCount:3));
+            Stopwatch stop = new Stopwatch();
+            Console.WriteLine("=============== Create and Train the Model ===============");
+            stop.Start();
+            _model = pipeline.Fit(dataView);
+            stop.Stop();
+            Console.WriteLine($" Total {stop.ElapsedMilliseconds} ms");
+            Console.WriteLine("=============== End of training ===============");
+            Console.WriteLine();
+            Utility.SaveModelAsFile(_context, _model, $"{RootFolder}/{ModelFileName}");
         }
 
         void IAiTest.Evaluate()
         {
-            
+            // No evaluation for clustering
         }
 
         void IAiTest.Predict()
@@ -31,12 +46,17 @@ namespace AiTest.Tests.IrisTest
             var prediction = _model.CreatePredictionEngine<IrisData, IrisPrediction>(_context).Predict(
                 new IrisData()
                 {
-                    SepalLength = 3.3f,
-                    SepalWidth = 1.6f,
-                    PetalLength = 0.2f,
-                    PetalWidth = 5.1f,
+                    SepalLength = 5.1f,
+                    SepalWidth = 3.5f,
+                    PetalLength = 1.4f,
+                    PetalWidth = 0.2f
                 });
-            Console.WriteLine($"Predicted flower type is: {prediction.PredictedLabels}");
+            Console.WriteLine();
+            Console.WriteLine($"**********************************************************************");
+            Console.WriteLine($"Cluster: {prediction.PredictedClusterId}");
+            Console.WriteLine($"Distances: {string.Join(" ", prediction.Distances)}");
+            Console.WriteLine($"**********************************************************************");
+            Console.WriteLine();
         }
     }
 }
