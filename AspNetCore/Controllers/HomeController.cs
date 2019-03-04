@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AspNetCore.Filters;
 using Microsoft.AspNetCore.Mvc;
 using AspNetCore.Models;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
 
@@ -56,7 +57,12 @@ namespace AspNetCore.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+            var error = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            if (error != null)
+            {
+                // log error.Error
+            }
+            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier}); 
         }
     }
 }
