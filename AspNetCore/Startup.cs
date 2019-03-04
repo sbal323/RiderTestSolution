@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspNetCore.BL;
 using AspNetCore.BL.Contracts;
+using AspNetCore.Configuration;
 using AspNetCore.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,12 +19,17 @@ namespace AspNetCore
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env, IConfiguration configuration)
         {
-            Configuration = configuration;
+            var configurationBuilder = new ConfigurationBuilder()
+                    .SetBasePath(env.ContentRootPath)
+                    .AddJsonFile("appsettings.json")
+                    .AddEnvironmentVariables();
+            Configuration = configurationBuilder.Build();
+            //Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -36,7 +42,9 @@ namespace AspNetCore
 //            });
 ////
 //
- 
+           services.AddSingleton<IConfigurationRoot>(Configuration);
+           services.AddOptions();
+           services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
            services.AddMvc(options =>
            {
                options.Filters.Add(new CultureAttribute());
