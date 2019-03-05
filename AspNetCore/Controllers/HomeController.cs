@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Routing;
 
 namespace AspNetCore.Controllers
 {
+    [HandleControllerException]
     public class HomeController : Controller
     {
         protected DateTime StartTime;
@@ -53,7 +54,12 @@ namespace AspNetCore.Controllers
         {
             return View("Privacy");
         }
-
+        public IActionResult TestException()
+        {
+            var i = 10;
+            var d = 20 / (i - 10);
+            return Content("Test");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
