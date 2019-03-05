@@ -2709,6 +2709,18 @@
           }
         }
       },
+      "NetEscapades.Extensions.Logging.RollingFile/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetEscapades.Extensions.Logging.RollingFile.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetEscapades.Extensions.Logging.RollingFile.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -7203,6 +7215,19 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "NetEscapades.Extensions.Logging.RollingFile/2.1.0": {
+      "sha512": "z1SVzb/uMqIjpksu1bogbbohUtOTFDA3P2mMfHVzDIizXTC8JvMlqj2tDL74sBTWwSCIMHrep+yWrV9vH7318A==",
+      "type": "package",
+      "path": "netescapades.extensions.logging.rollingfile/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NetEscapades.Extensions.Logging.RollingFile.dll",
+        "lib/netstandard2.0/NetEscapades.Extensions.Logging.RollingFile.xml",
+        "netescapades.extensions.logging.rollingfile.2.1.0.nupkg.sha512",
+        "netescapades.extensions.logging.rollingfile.nuspec"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -12000,7 +12025,8 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "NetEscapades.Extensions.Logging.RollingFile >= 2.1.0"
     ]
   },
   "packageFolders": {
@@ -12058,6 +12084,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "NetEscapades.Extensions.Logging.RollingFile": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           }
         },
         "imports": [

@@ -4,6 +4,7 @@ using AspNetCore.Configuration;
 using AspNetCore.Filters;
 using AspNetCore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace AspNetCore.Controllers
@@ -12,21 +13,27 @@ namespace AspNetCore.Controllers
     {
         private readonly IMovieRepository _movieRepository;
         private readonly AppSettings _settings;
+        private readonly ILogger _logger;
+        private readonly ILogger _logger1;
 
-        public MoviesController(IMovieRepository movieRepository, IOptions<AppSettings> settings)
+        public MoviesController(IMovieRepository movieRepository, IOptions<AppSettings> settings, ILoggerFactory loggerFactory, ILogger<MoviesController> logger)
         {
             _movieRepository = movieRepository;
             _settings = settings.Value;
+            _logger = loggerFactory.CreateLogger("Movie Controller");
+            _logger1 = logger;
         }
 
         public IActionResult Index()
         {
+            _logger.LogCritical("Inside index method");
             var model = new MoviesModel("All Movies") {Movies = _movieRepository.GetMovies()};
             return View(model);
         }
             
         public IActionResult Random()
         {
+            _logger1.LogError("Method of the day hit");
             //CultureAttribute.SetCultureCookie(Response,"UK-ua");
             var model = new RandomMovieModel("Movie of the day " + _settings.Copyright) {RandomMovie = _movieRepository.GetRandomMovie()};
             return View(model);

@@ -52,7 +52,7 @@ namespace AspNetCore.Controllers
 
         public IActionResult Privacy()
         {
-            return View("Privacy");
+            return View(new BaseModel("Privacy"));
         }
         public IActionResult TestException()
         {
@@ -68,7 +68,7 @@ namespace AspNetCore.Controllers
             {
                 // log error.Error
             }
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier}); 
+            return View(new ErrorViewModel("Error") {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier}); 
         }
     }
 }

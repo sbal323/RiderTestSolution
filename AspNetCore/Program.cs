@@ -14,7 +14,21 @@ namespace AspNetCore
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).CaptureStartupErrors(true).Build().Run();
+            CreateWebHostBuilder(args)
+                .CaptureStartupErrors(true)
+                .ConfigureLogging((Action<WebHostBuilderContext, ILoggingBuilder>) ((hostingContext, logging) =>
+                {
+                    logging.AddConfiguration((IConfiguration) hostingContext.Configuration.GetSection("Logging"));
+                    logging.AddConsole();
+                    logging.AddDebug();
+                    logging.AddEventSourceLogger();
+                    logging.AddFile(o =>
+                    {
+                        o.LogDirectory = AppContext.BaseDirectory;
+                    });
+                }))
+                .Build()
+                .Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
