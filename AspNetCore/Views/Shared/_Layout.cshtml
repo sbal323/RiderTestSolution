@@ -1,6 +1,6 @@
 ﻿@using AspNetCore.Extensions
 @using Microsoft.AspNetCore.Html
-@model IBaseModel
+@model ILayoutModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,13 +40,16 @@
                 </div>
             </div>
         </nav>
+        <partial name="_UserDetails" />
     </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<div class="container">
+    
+    <partial name="_CookieConsentPartial"/>
+    <partial name="_ErrorMessage"/>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

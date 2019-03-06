@@ -1,4 +1,4 @@
-@model AspNetCore.Models.BaseModel
+@model AspNetCore.Models.LoginModel
 
 <h2>@Model.Title</h2>
 <div style="text-align: center">
@@ -7,11 +7,11 @@
         <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
     <div class="container formcontainer">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <label for="UserName"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="UserName" required value="@Model.InputModel.UserName">
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="Pwd"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="Pwd" required value="@Model.InputModel.Pwd">
         
         <button type="submit" class="login">Login</button>
         <label>
@@ -76,6 +76,7 @@
         width: 50%;
         min-width: 300px;
         display: inline-block;
+        text-align: left;
     }
 
     span.psw {

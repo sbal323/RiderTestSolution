@@ -2,22 +2,29 @@ using System;
 
 namespace AspNetCore.Models
 {
-    public interface IBaseModel
+    public interface ILayoutModel
     {
         string CopyRight { get; }
         string Title { get; }
+        string ErrorMessage { get; }
+        bool IsError();
     }
-    public class BaseModel: IBaseModel
+    public class BaseModel: ILayoutModel
     {
         public string Title { get; }
-
-        string IBaseModel.Title => this.Title;
-
-        string IBaseModel.CopyRight => $"&copy; {DateTime.Today.Year} - AspNetCore";
+        public string ErrorMessage { get; set; }
+        bool ILayoutModel.IsError()
+        {
+            return ErrorMessage != String.Empty;
+        }
+        string ILayoutModel.Title => this.Title;
+        string ILayoutModel.ErrorMessage => this.ErrorMessage;
+        string ILayoutModel.CopyRight => $"&copy; {DateTime.Today.Year} - AspNetCore";
 
         public BaseModel(string title)
         {
             Title = title;
+            ErrorMessage = string.Empty;
         }
     }
 }
