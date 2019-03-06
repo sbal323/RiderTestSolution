@@ -10,6 +10,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
         <PackageReference Include="NetEscapades.Extensions.Logging.RollingFile" Version="2.1.0" />
     </ItemGroup>
@@ -17,7 +18,6 @@
 
     <ItemGroup>
       <Folder Include="Areas\Music" />
-      <Folder Include="Customizations\Views" />
       <Folder Include="Views\Shared\Components" />
     </ItemGroup>
 

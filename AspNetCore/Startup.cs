@@ -6,6 +6,7 @@ using AspNetCore.BL;
 using AspNetCore.BL.Contracts;
 using AspNetCore.Configuration;
 using AspNetCore.Filters;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -52,6 +53,17 @@ namespace AspNetCore
            })
                .AddRazorOptions(options => options.ViewLocationFormats.Insert(0,"/Customizations/Views/{1}/{0}.cshtml"))
                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+           
+           services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) 
+               .AddCookie(options =>
+               {
+                   options.LoginPath = new PathString("/Account/Login"); 
+                   options.Cookie.Name = "AspNetCoreAuthCookie";
+                   options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                   options.SlidingExpiration = true;
+                   options.AccessDeniedPath = new PathString("/Account/Denied");
+               });
+
            services.AddTransient(typeof(IMovieRepository), typeof(MovieRepository));
         }
 
@@ -84,6 +96,7 @@ namespace AspNetCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseAuthentication();
 //            app.Run(async (context) =>
 //            {
 //                if (context.Request.Path.ToString().Contains("json"))
