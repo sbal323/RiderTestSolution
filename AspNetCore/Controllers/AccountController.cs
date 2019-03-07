@@ -18,34 +18,54 @@ namespace AspNetCore.Controllers
         {
             return View(new LoginModel("Login Page"));
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginInputModel inputModel)
         {
+            var principal = GetPrincipal(inputModel);
+            if (principal != null)
+            {
+                var authProperties = new AuthenticationProperties
+                {
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(20),
+                    IsPersistent = false,
+                    AllowRefresh = false
+                };
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                //Sign the user in and create auth cookie
+                await HttpContext
+                    .SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
+                return RedirectToAction("Index", "Home");
+            }
+            return View(new LoginModel("Login Page")
+                {ErrorMessage = "Invalid user name or password. Please try again.", InputModel = inputModel});
+        }
+        public async Task<IActionResult> Logout()
+        {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return RedirectToAction("Index", "Home");
+        }
+
+        private ClaimsPrincipal GetPrincipal(LoginInputModel inputModel)
+        {
+            ClaimsPrincipal principal = null;
             if (inputModel.UserName.Contains("bal323"))
             {
                 var clasims = new Claim[]
                 {
-                    new Claim(ClaimTypes.Name,inputModel.UserName),
+                    new Claim(ClaimTypes.Name, inputModel.UserName),
                     new Claim(ClaimTypes.Role, "Administrator"),
-                    new Claim("FullName","Sergey Balog")
+                    new Claim("FullName", "Sergey Balog")
                 };
                 //create identity object from claims
-                var identity = new ClaimsIdentity(clasims,CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
+                var identity =
+                    new ClaimsIdentity(CookieAuthenticationDefaults
+                        .AuthenticationScheme); 
+                identity.AddClaims(clasims);
                 //create principal object
-                var principal = new ClaimsPrincipal(identity);
-                var authProperties = new AuthenticationProperties
-                {
-//                    AllowRefresh = true,
-//                    ExpiresUtc = DateTimeOffset.Now.AddDays(1),
-//                    IsPersistent = true,
-                };
-                //Sign the user in and create auth cookie
-                await HttpContext
-                    .SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
-                
-                return RedirectToAction("Index", "Home");
+                principal = new ClaimsPrincipal(identity);
             }
-            return View(new LoginModel("Login Page"){ErrorMessage = "Invalid user name or password. Please try again.", InputModel = inputModel});
+            return principal;
         }
     }
 }

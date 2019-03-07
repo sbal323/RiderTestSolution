@@ -11,10 +11,10 @@
                     Welcome, @name <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item nav-link" asp-controller="Movies" asp-action="Index"><i class="fas fa-film"></i>Movies</a>
+                    <a class="dropdown-item nav-link" asp-controller="Movies" asp-action="Random"><i class="far fa-calendar-alt"></i>Movie of the day</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item nav-link" asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
                 </div>
             </li>
         </ul>

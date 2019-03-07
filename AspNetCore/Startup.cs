@@ -47,34 +47,28 @@ namespace AspNetCore
            services.AddSingleton<IConfigurationRoot>(Configuration);
            services.AddOptions();
            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
-           
-           services.AddAuthentication(
-                   options =>
-                   {
-                       //DefaultChallengeScheme, DefaultAuthenticateScheme and DefaultScheme
-                       options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                       options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                       options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                       options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                   })
-               .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,  options =>
+
+           services.AddAuthentication(options =>
                {
-                   options.LoginPath = new PathString("/Account/Login"); 
-                   options.Cookie.Name = "AspNetCoreAuthCookie";
+                   options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                   options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                   options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                   options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+               })
+               .AddCookie(options =>
+               {
+                   options.LoginPath = new PathString("/Account/Login");
                    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                    options.SlidingExpiration = true;
                    options.AccessDeniedPath = new PathString("/Account/Denied");
-                   options.Cookie.HttpOnly = true;
-                   options.Cookie.SameSite = SameSiteMode.Lax;
-                   options.Cookie.SecurePolicy = CookieSecurePolicy.None;
                });
-           
+
            services.AddMvc(options =>
            {
                options.Filters.Add(new CultureAttribute());
            })
                .AddRazorOptions(options => options.ViewLocationFormats.Insert(0,"/Customizations/Views/{1}/{0}.cshtml"))
-               .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+               .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
            
            
 
@@ -95,12 +89,13 @@ namespace AspNetCore
                 app.UseHsts();
             }
 //
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             //app.UseCookiePolicy();
                 //app.UseMvcWithDefaultRoute();
 
             //
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -110,7 +105,7 @@ namespace AspNetCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            app.UseAuthentication();
+
 //            app.Run(async (context) =>
 //            {
 //                if (context.Request.Path.ToString().Contains("json"))

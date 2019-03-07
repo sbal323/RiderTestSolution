@@ -1,4 +1,0 @@
-2019-03-05 13:21:04.810 +02:00 [Critical] Movie Controller: Inside index method
-2019-03-05 13:21:06.472 +02:00 [Critical] Movie Controller: Inside index method
-2019-03-05 13:21:10.269 +02:00 [Critical] Movie Controller: Inside index method
-2019-03-05 13:23:27.471 +02:00 [Error] AspNetCore.Controllers.MoviesController: Method of the day hit
