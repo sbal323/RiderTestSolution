@@ -47,6 +47,28 @@ namespace AspNetCore
            services.AddSingleton<IConfigurationRoot>(Configuration);
            services.AddOptions();
            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
+           
+           services.AddAuthentication(
+                   options =>
+                   {
+                       //DefaultChallengeScheme, DefaultAuthenticateScheme and DefaultScheme
+                       options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                       options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                       options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                       options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                   })
+               .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,  options =>
+               {
+                   options.LoginPath = new PathString("/Account/Login"); 
+                   options.Cookie.Name = "AspNetCoreAuthCookie";
+                   options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                   options.SlidingExpiration = true;
+                   options.AccessDeniedPath = new PathString("/Account/Denied");
+                   options.Cookie.HttpOnly = true;
+                   options.Cookie.SameSite = SameSiteMode.Lax;
+                   options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+               });
+           
            services.AddMvc(options =>
            {
                options.Filters.Add(new CultureAttribute());
@@ -54,15 +76,7 @@ namespace AspNetCore
                .AddRazorOptions(options => options.ViewLocationFormats.Insert(0,"/Customizations/Views/{1}/{0}.cshtml"))
                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
            
-           services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) 
-               .AddCookie(options =>
-               {
-                   options.LoginPath = new PathString("/Account/Login"); 
-                   options.Cookie.Name = "AspNetCoreAuthCookie";
-                   options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-                   options.SlidingExpiration = true;
-                   options.AccessDeniedPath = new PathString("/Account/Denied");
-               });
+           
 
            services.AddTransient(typeof(IMovieRepository), typeof(MovieRepository));
         }
@@ -83,7 +97,7 @@ namespace AspNetCore
 //
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-//            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
                 //app.UseMvcWithDefaultRoute();
 
             //
