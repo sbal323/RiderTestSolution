@@ -1,0 +1,8 @@
+@model ILayoutModel
+
+@if (Model.IsError())
+{
+    <div class="alert alert-danger" role="alert">
+        Error occured: @Model.ErrorMessage
+    </div>
+}

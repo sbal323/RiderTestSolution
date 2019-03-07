@@ -1,0 +1,22 @@
+@model ILayoutModel
+@if (User.Identity.IsAuthenticated)
+{
+    var name = User.Claims.FirstOrDefault(x=> x.Type == "FullName")?.Value;
+    
+    <nav class="navbar navbar-expand navbar-light fixed-top" style="background-color: #FFFFFF;">
+        <a class="navbar-brand mx-auto" href="#">AspNetCore Application</a>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> 
+                    Welcome, @name <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>    
+}
