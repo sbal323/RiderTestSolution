@@ -1,7 +1,8 @@
+@using System.Security.Claims
 @model ILayoutModel
 @if (User.Identity.IsAuthenticated)
 {
-    var name = User.Claims.FirstOrDefault(x=> x.Type == "FullName")?.Value;
+    var name = User.Claims.FirstOrDefault(x=> x.Type == "FullName")?.Value ?? User.Claims.FirstOrDefault(x=> x.Type == ClaimTypes.Name)?.Value;
     
     <nav class="navbar navbar-expand navbar-light fixed-top" style="background-color: #FFFFFF;">
         <a class="navbar-brand mx-auto" href="#">AspNetCore Application</a>

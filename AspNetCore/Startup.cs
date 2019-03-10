@@ -7,6 +7,7 @@ using AspNetCore.BL.Contracts;
 using AspNetCore.Configuration;
 using AspNetCore.Filters;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Twitter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -62,7 +63,14 @@ namespace AspNetCore
                    options.SlidingExpiration = true;
                    options.AccessDeniedPath = new PathString("/Account/Denied");
                });
-
+            services.AddAuthentication(TwitterDefaults.AuthenticationScheme)
+                .AddTwitter(options =>
+                {
+                    options.SignInScheme = "TEMP";
+                    options.ConsumerKey = "IUFmcK7v4KNuyTmY4E8nPfTUa";
+                    options.ConsumerSecret = "";
+                })
+                .AddCookie("TEMP");
            services.AddMvc(options =>
            {
                options.Filters.Add(new CultureAttribute());

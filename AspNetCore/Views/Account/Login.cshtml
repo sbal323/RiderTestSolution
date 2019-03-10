@@ -2,28 +2,30 @@
 
 <h2>@Model.Title</h2>
 <div style="text-align: center">
-<form asp-controller="Account" asp-action="Login">
-    <div class="imgcontainer">
-        <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
-    <div class="container formcontainer">
-        <label for="UserName"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="UserName" required value="@Model.InputModel.UserName">
+    <form asp-controller="Account" asp-action="Login">
+        <div class="imgcontainer">
+            <img src="/images/img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="container formcontainer">
+            <label for="UserName"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="UserName" required value="@Model.InputModel.UserName">
 
-        <label for="Pwd"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="Pwd" required value="@Model.InputModel.Pwd">
-        
-        <button type="submit" class="login">Login</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-    </div>
+            <label for="Pwd"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="Pwd" required value="@Model.InputModel.Pwd">
+            <button type="submit" class="login">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
 
-    <div class="container" style="background-color: #f1f1f1; height: 80px;">
-        <button type="button" class="login cancelbtn" onclick="location.href='@Url.Action("Index", "Home")'">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-</form>
+        <div class="container" style="background-color: #f1f1f1; height: 80px;">
+            <button type="button" class="login cancelbtn" onclick="location.href='@Url.Action("Index", "Home")'">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+    <form asp-action="TwitterAuth">
+        <button type="submit" class="login"><i class="fab fa-twitter"></i>OR Login with Twitter</button>
+    </form>
 </div>
 <style>
     body {font-family: Arial, Helvetica, sans-serif;}
