@@ -57,7 +57,8 @@ namespace AspNetCore.Controllers
                 {
                     new Claim(ClaimTypes.Name, inputModel.UserName),
                     new Claim(ClaimTypes.Role, "Administrator"),
-                    new Claim("FullName", "Sergey Balog")
+                    new Claim("FullName", "Sergey Balog"),
+                    new Claim("Module", "HR")
                 };
                 //create identity object from claims
                 var identity =

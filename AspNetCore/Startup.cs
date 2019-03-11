@@ -63,14 +63,14 @@ namespace AspNetCore
                    options.SlidingExpiration = true;
                    options.AccessDeniedPath = new PathString("/Account/Denied");
                });
-            services.AddAuthentication(TwitterDefaults.AuthenticationScheme)
-                .AddTwitter(options =>
-                {
-                    options.SignInScheme = "TEMP";
-                    options.ConsumerKey = "IUFmcK7v4KNuyTmY4E8nPfTUa";
-                    options.ConsumerSecret = "";
-                })
-                .AddCookie("TEMP");
+//            services.AddAuthentication(TwitterDefaults.AuthenticationScheme)
+//                .AddTwitter(options =>
+//                {
+//                    options.SignInScheme = "TEMP";
+//                    options.ConsumerKey = "IUFmcK7v4KNuyTmY4E8nPfTUa";
+//                    options.ConsumerSecret = "";
+//                })
+//                .AddCookie("TEMP");
            services.AddMvc(options =>
            {
                options.Filters.Add(new CultureAttribute());
