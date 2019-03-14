@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AiTest", "AiTest\AiTest.csproj", "{B926C3C5-DE71-4E41-8B74-DD89A703B055}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{35169CD2-2952-4487-A563-C1C7E8643B11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{B926C3C5-DE71-4E41-8B74-DD89A703B055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B926C3C5-DE71-4E41-8B74-DD89A703B055}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B926C3C5-DE71-4E41-8B74-DD89A703B055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35169CD2-2952-4487-A563-C1C7E8643B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35169CD2-2952-4487-A563-C1C7E8643B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35169CD2-2952-4487-A563-C1C7E8643B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35169CD2-2952-4487-A563-C1C7E8643B11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
