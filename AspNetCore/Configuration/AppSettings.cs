@@ -4,5 +4,6 @@ namespace AspNetCore.Configuration
     {
         public int PageSize { get; set; }
         public string Copyright { get; set; }
+        public string SharePointEndpoint { get; set; }
     }
 }

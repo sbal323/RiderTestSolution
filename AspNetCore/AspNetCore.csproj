@@ -19,6 +19,7 @@
 
 
     <ItemGroup>
+      <Folder Include="Api" />
       <Folder Include="Areas\Music" />
       <Folder Include="Views\Shared\Components" />
     </ItemGroup>

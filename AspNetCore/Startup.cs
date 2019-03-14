@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using AspNetCore.BL;
 using AspNetCore.BL.Contracts;
 using AspNetCore.Configuration;
 using AspNetCore.Filters;
+using AspNetCore.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Twitter;
 using Microsoft.AspNetCore.Builder;
@@ -46,6 +48,8 @@ namespace AspNetCore
 ////
 //
            services.AddSingleton<IConfigurationRoot>(Configuration);
+           //services.AddScoped<ISharePointService>((provider) => new SharePointService(Configuration.GetSection("AppSettings").GetValue<string>("SharePointEndpoint")));
+           services.AddScoped<ISharePointService, SharePointService>();
            services.AddOptions();
            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
 
@@ -86,6 +90,7 @@ namespace AspNetCore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.Map("/api/test", ApiTest);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -125,6 +130,14 @@ namespace AspNetCore
 //                    await context.Response .WriteAsync($"<html><body>Courtesy of <b> Programming ASP.NET Core </b>!<hr>{SsoSettings.DefaultPassword}ENVIRONMENT = {env.EnvironmentName} </body></html>"); 
 //                }
 //            });
+        }
+
+        private void ApiTest(IApplicationBuilder application)
+        {
+            application.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("test API");
+            });
         }
     }
 }
