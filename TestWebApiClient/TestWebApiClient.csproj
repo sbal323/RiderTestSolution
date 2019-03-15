@@ -6,10 +6,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="IdentityServer4" Version="2.4.0-preview1" />
+        <PackageReference Include="IdentityModel.AspNetCore.ScopeValidation" Version="1.1.1" />
         <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+        <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
+        <PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
     </ItemGroup>
 
 </Project>
