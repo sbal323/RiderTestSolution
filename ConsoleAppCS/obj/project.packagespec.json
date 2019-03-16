@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\bal\\RiderProjects\\TestSolution\\ConsoleAppCS\\ConsoleAppCS.csproj",
+    "projectUniqueName": "/Users/sergiibalog/RiderProjects/RiderTestSolution/ConsoleAppCS/ConsoleAppCS.csproj",
     "projectName": "ConsoleAppCS",
-    "projectPath": "C:\\Users\\bal\\RiderProjects\\TestSolution\\ConsoleAppCS\\ConsoleAppCS.csproj",
-    "outputPath": "C:\\Users\\bal\\RiderProjects\\TestSolution\\ConsoleAppCS\\obj\\",
+    "projectPath": "/Users/sergiibalog/RiderProjects/RiderTestSolution/ConsoleAppCS/ConsoleAppCS.csproj",
+    "outputPath": "/Users/sergiibalog/RiderProjects/RiderTestSolution/ConsoleAppCS/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.1"

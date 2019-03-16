@@ -3,6 +3,7 @@ using AspNetCore.BL.Contracts;
 using AspNetCore.Configuration;
 using AspNetCore.Filters;
 using AspNetCore.Models;
+using AspNetCore.Models.Input;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,11 +28,57 @@ namespace AspNetCore.Controllers
             _logger1 = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string success)
         {
             _logger.LogCritical("Inside index method");
             var model = new MoviesModel("All Movies") {Movies = _movieRepository.GetMovies()};
+            if (!string.IsNullOrWhiteSpace(success))
+            {
+                model.SuccessMessage = success;
+            }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var model = new EditMovieModel(id==0?"Add Monie":"Edit Movie");
+            if (id != 0)
+            {
+                model.Id = id;
+                model.Name = "Taxi 5";
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult EditResult(EditMovieModel model)
+        {
+            
+            return View("Edit",model);
+        }
+        [HttpPost]
+        public IActionResult Edit(MovieInputModel movie)
+        {
+            var model = new EditMovieModel("Edit Movie");
+            if (movie.Action == FormOptions.Delete)
+            {
+                model.ErrorMessage = "Can't delete such a great movie";
+                model.Id = movie.Id;
+                model.Name = movie.Name;
+
+            }
+            else if (movie.Action == FormOptions.Save)
+            {
+                model.SuccessMessage = "Movie saved successfully";
+                model.Id = movie.Id;
+                model.Name = movie.Name;
+            }
+            else if (movie.Action == FormOptions.Add)
+            {
+                return RedirectToAction("Index", "Movies", new { success = "Movie added successfully!"});
+            }
+
+            return RedirectToAction("EditResult", model);
         }
 
         [RequiresModule(modules:new string[]{"HR", "Performance"})]

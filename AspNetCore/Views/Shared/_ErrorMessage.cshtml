@@ -6,3 +6,19 @@
         Error occured: @Model.ErrorMessage
     </div>
 }
+@if (!string.IsNullOrWhiteSpace(Model.SuccessMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @Model.SuccessMessage
+    </div>
+}
+<script>
+    $(".alert").click(function(e) {
+        $(this).hide();
+    });
+    $(".alert").delay(3000).fadeOut(
+        "normal",
+        function(){
+            $(this).remove();
+        });
+</script>
