@@ -77,6 +77,15 @@ namespace AspNetCore.Controllers
             {
                 return RedirectToAction("Index", "Movies", new { success = "Movie added successfully!"});
             }
+            else if (movie.Action == FormOptions.None)
+            {
+                if (movie.Id == 111)
+                {
+                    HttpContext.Response.StatusCode = 500;
+                    return Content("Can't save this item");
+                }
+                return Json(new { message="Added successfully"});
+            }
 
             return RedirectToAction("EditResult", model);
         }
