@@ -33,34 +33,36 @@
         color: white !important;
     }
 </style>
-<script>
-    $('#confirm-delete').on('show.bs.modal', function(e) {
-        //$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-        var data = $(e.relatedTarget).data();
-        $('.btn-ok', this).data('id', data.id);
-        $('.btn-ok', this).data('href', data.href);
-    });
-    $('#confirm-delete').on('click', '.btn-ok', function(e) {
-        var $modalDiv = $(e.delegateTarget);
-        var id = $(this).data('id');
-        var url = $(this).data('href');
-        $.post(url, { id: id }) 
-            .done(function (response) {
-                var chunks = processMultipleAjaxResponse(response);
-                $("#list-of-movies").html(chunks[0]);
-                $("#movies-drop-down").html(chunks[1]);
-                $modalDiv.modal('hide');
-            })
-            .fail(function(xhr, status, error) {
-                if (xhr.status == 401) {
-                    window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
-                }
-            });
-    }); 
-    processMultipleAjaxResponse = function(response) {
-         var chunkSeparator = "---|||---";
-         var tokens = response.split(chunkSeparator); 
-         return tokens;
-    };
+@section Scripts{
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            //$(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            var data = $(e.relatedTarget).data();
+            $('.btn-ok', this).data('id', data.id);
+            $('.btn-ok', this).data('href', data.href);
+        });
+        $('#confirm-delete').on('click', '.btn-ok', function(e) {
+            var $modalDiv = $(e.delegateTarget);
+            var id = $(this).data('id');
+            var url = $(this).data('href');
+            $.post(url, { id: id }) 
+                .done(function (response) {
+                    var chunks = processMultipleAjaxResponse(response);
+                    $("#list-of-movies").html(chunks[0]);
+                    $("#movies-drop-down").html(chunks[1]);
+                    $modalDiv.modal('hide');
+                })
+                .fail(function(xhr, status, error) {
+                    if (xhr.status == 401) {
+                        window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
+                    }
+                });
+        }); 
+        processMultipleAjaxResponse = function(response) {
+            var chunkSeparator = "---|||---";
+            var tokens = response.split(chunkSeparator); 
+            return tokens;
+        };
 
-</script>
+    </script> 
+}

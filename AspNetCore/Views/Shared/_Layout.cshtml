@@ -38,7 +38,6 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-    @RenderSection("Scripts", required: false)
 </head>
 <body>
     <header>
@@ -82,5 +81,6 @@
 <div class="container">
     @this.RenderSectionWithDefault("BottomFooter", @<b>Lanteria&trade;</b>)
 </div>
+@RenderSection("Scripts", required: false)
 </body>
 </html>
