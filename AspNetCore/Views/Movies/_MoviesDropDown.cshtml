@@ -1,0 +1,11 @@
+@model MoviesModel
+<div class="container alert alert-light">
+    <span>Select Movie: </span>
+    <select>
+        @foreach (var movie in Model.Movies)
+        {
+            <option value="@movie.Id">@movie.Name</option>
+        }  
+    </select>
+</div>
+

@@ -2,6 +2,9 @@
 @model AspNetCore.Models.MoviesModel
 
 <h2>@Model.Title</h2>
+<div id="movies-drop-down">
+    @Html.Partial("_MoviesDropDown",Model)
+</div>
 <div id="list-of-movies">
     @Html.Partial("_ListOfMovies",Model)
 </div>
@@ -43,8 +46,21 @@
         var url = $(this).data('href');
         $.post(url, { id: id }) 
             .done(function (response) {
-                $("#list-of-movies").html(response);
+                var chunks = processMultipleAjaxResponse(response);
+                $("#list-of-movies").html(chunks[0]);
+                $("#movies-drop-down").html(chunks[1]);
                 $modalDiv.modal('hide');
+            })
+            .fail(function(xhr, status, error) {
+                if (xhr.status == 401) {
+                    window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
+                }
             });
-    });    
+    }); 
+    processMultipleAjaxResponse = function(response) {
+         var chunkSeparator = "---|||---";
+         var tokens = response.split(chunkSeparator); 
+         return tokens;
+    };
+
 </script>

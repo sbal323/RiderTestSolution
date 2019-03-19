@@ -51,7 +51,11 @@ namespace AspNetCore.Controllers
         {
             var model = new MoviesModel("Manage Movies") {Movies = _movieRepository.GetMovies()};
             model.Movies = model.Movies.Where(x => x.Id != id).ToList();
-            return PartialView("_ListOfMovies", model);
+            return new MultiplePartialViewResult(new []
+            {
+                PartialView("_ListOfMovies", model),
+                PartialView("_MoviesDropDown", model),
+            }) ;
         }
         [HttpGet]
         public IActionResult Edit(int id)
