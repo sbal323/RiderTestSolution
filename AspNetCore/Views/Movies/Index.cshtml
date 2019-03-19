@@ -2,7 +2,12 @@
 @model AspNetCore.Models.MoviesModel
 
 <h2>@Model.Title</h2>
-@await Component.InvokeAsync("MovieOfTheDay")
+<div class="alert alert-info">
+    @await Component.InvokeAsync("MovieOfTheDay")
+</div>
+<div class="alert alert-light">
+<a asp-controller="Movies" asp-action="Manage" class="btn btn-info">Manage movies</a>
+</div>
 <div class="row">
     @foreach (var movie in Model.Movies)
     {

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using AspNetCore.BL.Contracts;
 using AspNetCore.Configuration;
 using AspNetCore.Filters;
@@ -39,6 +40,19 @@ namespace AspNetCore.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Manage()
+        {
+            var model = new MoviesModel("Manage Movies") {Movies = _movieRepository.GetMovies()};
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var model = new MoviesModel("Manage Movies") {Movies = _movieRepository.GetMovies()};
+            model.Movies = model.Movies.Where(x => x.Id != id).ToList();
+            return PartialView("_ListOfMovies", model);
+        }
         [HttpGet]
         public IActionResult Edit(int id)
         {

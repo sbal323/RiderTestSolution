@@ -1,0 +1,16 @@
+@model MoviesModel
+<div class="container grid-striped">
+    <div class="row font-weight-bold py-2">
+        <div class="col-5">Id</div>
+        <div class="col-5">Name</div>
+        <div class="col-2"></div>
+    </div>
+    @foreach (var movie in Model.Movies)
+    {
+        <div class="row py-2">
+            <div class="col-5">@movie.Id</div>
+            <div class="col-5">@movie.Name</div>
+            <div class="col-2"><a href="#" data-href="/Movies/Delete/" data-id="@movie.Id" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fas fa-trash"></i>Delete</a></div>
+        </div>
+    }
+</div>
