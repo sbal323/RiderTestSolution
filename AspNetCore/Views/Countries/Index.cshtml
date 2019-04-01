@@ -1,0 +1,45 @@
+@model AspNetCore.Models.CountriesModel
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+<h2>@Model.Title</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-sm">
+                @foreach (var code in Model.Codes)
+                {
+                    <tr>
+                        <td>@code</td>
+                        <td style="text-align: center"><button class="btn btn-info btn-xs" onclick="info('@code')"><i class="fas fa-chevron-right"></i></button></td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col">
+            <div id="details">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script id="template-details" type="x-tmpl-mustache">
+<div class="card bg-white">
+    <div class="card-header"><h5 class="card-title">{{name}}</h5></div>
+        <div class="card-body">
+            <h5 class="card-title">Capital is {{capital.name}}</h5>
+            <p class="card-text"><p>Phone international prefix is <strong>{{telPref}}</strong></p>
+        </div>
+    </div>
+</script> 
+<script>
+    var template = $("#template-details").html();
+    Mustache.parse(template);
+    
+    function info(id) {
+        var url = "/countries/details";
+        $.getJSON(url, { id: id })
+            .done(function(response) {
+                var rendered = Mustache.render(template, response);
+                $("#details").html(rendered);
+            });
+    }
+</script>
