@@ -1,0 +1,65 @@
+@model AspNetCore.Models.CountriesModel
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+<h2>@Model.Title</h2>
+<div class="container">
+    <a class="btn btn-info" asp-controller="Countries" asp-action="Index">Mustache Example</a>
+    <p></p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-sm table-hover" data-bind="foreach:countries">
+                <tr style="text-align: center">
+                    <td data-bind="text:code"></td>
+                    <td><button class="btn btn-info" data-bind="event:{click:showCapital}"><i class="fas fa-chevron-right"></i></button>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <div id="details">
+                <div class="card bg-white" data-bind="visible:countrySelected">
+                    <div class="card-header"><h5 class="card-title" id="countryName"></h5></div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="capitalName"></h5>
+                        <p class="card-text" id="telPref"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<script>
+    var selected = false;
+    function CountryViewModel(codes) 
+    {
+         this.countrySelected = ko.observable();
+         this.countries = $.map(codes, function(code){
+              return new Country(code);
+         });
+
+         
+    } 
+    function Country(code) {
+        this.code = code;
+        this.showCapital = function() {
+            var url = "/countries/details/";
+            $.getJSON(url, { id: code })
+                .done(function(response) {
+                    $("#countryName").html(response.name);
+                    $("#capitalName").html("Capital is " + response.capital.name);
+                    $("#telPref").html("Phone international prefix is <strong>" + response.telPref + "</strong>");
+                    model.countrySelected(true);
+                });
+        }
+    }
+    var url = "/countries/all";
+    var model;
+    $.getJSON(url,
+        function(response) {
+            model = new CountryViewModel(response.countryCodes);
+            ko.applyBindings(model);
+        });
+
+</script>
+

@@ -17,6 +17,10 @@ namespace AspNetCore.Controllers
             return View(model);
         }
 
+        public IActionResult All()
+        {
+            return Json(new {countryCodes = new string[] {"UK", "IT", "US", "CA"}});
+        }
         public IActionResult Details(string id)
         {
             if (id == "UK")
@@ -40,6 +44,17 @@ namespace AspNetCore.Controllers
                 return Json(new {Name = "France", TelPref = "+33", Capital = new {Name = "Paris"}}); 
             }
             
+        }
+
+        public IActionResult IndexKo()
+        {
+            var model = new CountriesModel("Countries");
+            model.Codes.Add("FR");
+            model.Codes.Add("IT");
+            model.Codes.Add("US");
+            model.Codes.Add("CA");
+            model.Codes.Add("UK");
+            return View(model);
         }
     }
 }
