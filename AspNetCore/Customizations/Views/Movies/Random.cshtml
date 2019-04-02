@@ -6,6 +6,7 @@
 <h3>@Model.Title</h3>
 <div class="badge badge-warning">Customized </div>
 <span class="text-body">@Model.RandomMovie.Name </span><span class="badge badge-info">@Model.RandomMovie.Id</span>
+@Html.ActionLink("Go to area","Index","Home", new {area = "Music"})
 @section BottomFooter {
     <p>Lanteria&trade; 2008 - 2019</p>
 }
