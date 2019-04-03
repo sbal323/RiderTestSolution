@@ -97,7 +97,7 @@ namespace AspNetCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime life)
         {
             app.Map("/api/test", ApiTest);
             if (env.IsDevelopment())
@@ -139,6 +139,10 @@ namespace AspNetCore
 //                    await context.Response .WriteAsync($"<html><body>Courtesy of <b> Programming ASP.NET Core </b>!<hr>{SsoSettings.DefaultPassword}ENVIRONMENT = {env.EnvironmentName} </body></html>"); 
 //                }
 //            });
+            life.ApplicationStarted.Register(OnStarted);
+            life.ApplicationStopping.Register(OnStopping);
+            life.ApplicationStopped.Register(OnStopped);
+
         }
 
         private void ApiTest(IApplicationBuilder application)
@@ -148,5 +152,29 @@ namespace AspNetCore
                 await context.Response.WriteAsync("test API");
             });
         }
+        
+        private static void OnStarted() 
+        {
+            // Perform post-startup activities here
+            Console.WriteLine(" Started\n = = = = =");
+            Console.BackgroundColor = ConsoleColor.Blue; 
+        }
+        private static void OnStopping() 
+        { 
+            // Perform on-stopping activities here
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine(" = = = = =\nStopping\n = = = = =\n"); 
+        }
+        private static void OnStopped() 
+        { 
+            // Perform post-stopped activities here 
+            var defaultForeColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" Stopped."); 
+            Console.ForegroundColor = defaultForeColor;
+            Console.WriteLine(" Press any key."); 
+            Console.ReadLine(); 
+        }
+
     }
 }

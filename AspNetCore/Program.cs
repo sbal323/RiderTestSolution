@@ -14,6 +14,10 @@ namespace AspNetCore
     {
         public static void Main(string[] args)
         {
+//            var config = new ConfigurationBuilder()
+//                .SetBasePath(Directory.GetCurrentDirectory())
+//                .AddJsonFile("hosting.json", optional: true)
+//                .Build();
             CreateWebHostBuilder(args)
                 .CaptureStartupErrors(true)
                 .ConfigureLogging((Action<WebHostBuilderContext, ILoggingBuilder>) ((hostingContext, logging) =>
@@ -27,6 +31,7 @@ namespace AspNetCore
                         o.LogDirectory = AppContext.BaseDirectory;
                     });
                 }))
+                //.UseConfiguration(config)
                 .Build()
                 .Run();
         }
