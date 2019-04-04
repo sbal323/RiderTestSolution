@@ -100,6 +100,16 @@ namespace AspNetCore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime life)
         {
             app.Map("/api/test", ApiTest);
+//            app.Use(async (context, nextMiddleware) =>
+//            {
+//                await context.Response.WriteAsync(" BEFORE");
+//                await nextMiddleware();
+//                await context.Response.WriteAsync(" AFTER");
+//            });
+//            app.Run(async (context) =>
+//            {
+//                await context.Response.WriteAsync($"<h3>Test at {DateTime.Now.ToString("yyyy-M-d dddd HH:mm:ss")}</h3>");
+//            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -139,9 +149,9 @@ namespace AspNetCore
 //                    await context.Response .WriteAsync($"<html><body>Courtesy of <b> Programming ASP.NET Core </b>!<hr>{SsoSettings.DefaultPassword}ENVIRONMENT = {env.EnvironmentName} </body></html>"); 
 //                }
 //            });
-            life.ApplicationStarted.Register(OnStarted);
-            life.ApplicationStopping.Register(OnStopping);
-            life.ApplicationStopped.Register(OnStopped);
+//            life.ApplicationStarted.Register(OnStarted);
+//            life.ApplicationStopping.Register(OnStopping);
+//            life.ApplicationStopped.Register(OnStopped);
 
         }
 
