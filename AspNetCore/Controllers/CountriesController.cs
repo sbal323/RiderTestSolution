@@ -8,7 +8,7 @@ namespace AspNetCore.Controllers
         // GET
         public IActionResult Index()
         {
-            var model = new CountriesModel("Countries");
+            var model = new CountriesModel("Countries - Mustache example");
             model.Codes.Add("FR");
             model.Codes.Add("IT");
             model.Codes.Add("US");
@@ -19,7 +19,7 @@ namespace AspNetCore.Controllers
 
         public IActionResult All()
         {
-            return Json(new {countryCodes = new string[] {"UK", "IT", "US", "CA"}});
+            return Json(new {countryCodes = new string[] {"FR", "UK", "IT", "US", "CA"}});
         }
         public IActionResult Details(string id)
         {
@@ -48,13 +48,24 @@ namespace AspNetCore.Controllers
 
         public IActionResult IndexKo()
         {
-            var model = new CountriesModel("Countries");
+            var model = new CountriesModel("Countries - Knockout example");
             model.Codes.Add("FR");
             model.Codes.Add("IT");
             model.Codes.Add("US");
             model.Codes.Add("CA");
             model.Codes.Add("UK");
             return View(model);
+        }
+
+        public IActionResult IndexVue()
+        {
+            var model = new CountriesModel("Countries - Vue example");
+                        model.Codes.Add("FR");
+                        model.Codes.Add("IT");
+                        model.Codes.Add("US");
+                        model.Codes.Add("CA");
+                        model.Codes.Add("UK");
+                        return View(model);
         }
     }
 }

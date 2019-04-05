@@ -1,0 +1,68 @@
+@model AspNetCore.Models.CountriesModel
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>    
+<h2>@Model.Title</h2>
+<div class="container">
+    <a class="btn btn-info" asp-controller="Countries" asp-action="Index">Mustache Example</a>
+    <a class="btn btn-primary" asp-controller="Countries" asp-action="IndexKo">KO Example</a>
+    <p></p>
+</div>
+<div class="container" id="app">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-sm table-hover">
+                <tr style="text-align: center" v-for="country in countries">
+                    <td>{{ country }}</td>
+                    <td><button class="btn btn-info" v-on:click="showCapital(country)"><i class="fas fa-chevron-right"></i></button>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <div id="details">
+                <div class="card bg-white" v-if="countrySelected">
+                    <div class="card-header"><h5 class="card-title">{{selectedCountry.countryName}}</h5></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Capital is <i>{{selectedCountry.capitalName}}</i></h5>
+                        <p class="card-text">Phone international prefix is <strong>{{selectedCountry.telPref}}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            countries: null,
+            countrySelected: false,
+            selectedCountry:{
+                countryName:"",
+                capitalName:"",
+                telPref:""
+            }
+        },
+        methods: {
+            init: function() {
+                var url = "/countries/all";
+                var vm = this;
+                $.getJSON(url,
+                    function(response) {
+                        vm.countries = response.countryCodes;
+                    });
+            },
+            showCapital: function(code) {
+                var url = "/countries/details/";
+                var vm = this;
+                $.getJSON(url, { id: code })
+                    .done(function(response) {
+                        vm.countrySelected = true;
+                        vm.selectedCountry.countryName = response.name;
+                        vm.selectedCountry.capitalName = response.capital.name;
+                        vm.selectedCountry.telPref = response.telPref;
+                    });
+            }
+        }
+    });
+    app.init();
+</script>
+
