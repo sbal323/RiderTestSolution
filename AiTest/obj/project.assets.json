@@ -29,27 +29,14 @@
           "lib/netstandard1.3/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.Data.DataView/0.10.0": {
+      "Microsoft.ML/1.0.0": {
         "type": "package",
         "dependencies": {
-          "System.Memory": "4.5.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Data.DataView.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Data.DataView.dll": {}
-        }
-      },
-      "Microsoft.ML/0.10.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Data.DataView": "0.10.0",
-          "Microsoft.ML.CpuMath": "0.10.0",
+          "Microsoft.ML.CpuMath": "1.0.0",
+          "Microsoft.ML.DataView": "1.0.0",
           "Newtonsoft.Json": "10.0.3",
           "System.CodeDom": "4.4.0",
           "System.Collections.Immutable": "1.5.0",
-          "System.ComponentModel.Composition": "4.5.0",
           "System.Memory": "4.5.1",
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Threading.Tasks.Dataflow": "4.8.0"
@@ -57,29 +44,17 @@
         "compile": {
           "lib/netstandard2.0/Microsoft.ML.Core.dll": {},
           "lib/netstandard2.0/Microsoft.ML.Data.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.Ensemble.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.FastTree.dll": {},
           "lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.Maml.dll": {},
           "lib/netstandard2.0/Microsoft.ML.PCA.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.ResultProcessor.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.SamplesUtils.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.StandardLearners.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.Sweeper.dll": {},
+          "lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll": {},
           "lib/netstandard2.0/Microsoft.ML.Transforms.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.ML.Core.dll": {},
           "lib/netstandard2.0/Microsoft.ML.Data.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.Ensemble.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.FastTree.dll": {},
           "lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.Maml.dll": {},
           "lib/netstandard2.0/Microsoft.ML.PCA.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.ResultProcessor.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.SamplesUtils.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.StandardLearners.dll": {},
-          "lib/netstandard2.0/Microsoft.ML.Sweeper.dll": {},
+          "lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll": {},
           "lib/netstandard2.0/Microsoft.ML.Transforms.dll": {}
         },
         "build": {
@@ -91,19 +66,11 @@
             "assetType": "native",
             "rid": "linux-x64"
           },
-          "runtimes/linux-x64/native/libFastTreeNative.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
           "runtimes/linux-x64/native/libLdaNative.so": {
             "assetType": "native",
             "rid": "linux-x64"
           },
           "runtimes/osx-x64/native/libFactorizationMachineNative.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/libFastTreeNative.dylib": {
             "assetType": "native",
             "rid": "osx-x64"
           },
@@ -115,19 +82,11 @@
             "assetType": "native",
             "rid": "win-x64"
           },
-          "runtimes/win-x64/native/FastTreeNative.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
           "runtimes/win-x64/native/LdaNative.dll": {
             "assetType": "native",
             "rid": "win-x64"
           },
           "runtimes/win-x86/native/FactorizationMachineNative.dll": {
-            "assetType": "native",
-            "rid": "win-x86"
-          },
-          "runtimes/win-x86/native/FastTreeNative.dll": {
             "assetType": "native",
             "rid": "win-x86"
           },
@@ -137,7 +96,7 @@
           }
         }
       },
-      "Microsoft.ML.CpuMath/0.10.0": {
+      "Microsoft.ML.CpuMath/1.0.0": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.1"
@@ -168,6 +127,18 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "Microsoft.ML.DataView/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.ML.DataView.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.DataView.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.2.0": {
@@ -467,18 +438,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.ComponentModel.dll": {}
-        }
-      },
-      "System.ComponentModel.Composition/4.5.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Security.Permissions": "4.5.0"
-        },
-        "compile": {
-          "ref/netstandard2.0/System.ComponentModel.Composition.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/System.ComponentModel.Composition.dll": {}
         }
       },
       "System.ComponentModel.Primitives/4.3.0": {
@@ -884,59 +843,6 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
-      "System.Security.AccessControl/4.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0",
-          "System.Security.Principal.Windows": "4.5.0"
-        },
-        "compile": {
-          "ref/netstandard2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.AccessControl.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
-      "System.Security.Permissions/4.5.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Security.AccessControl": "4.5.0"
-        },
-        "compile": {
-          "ref/netstandard2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.Permissions.dll": {}
-        }
-      },
-      "System.Security.Principal.Windows/4.5.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0"
-        },
-        "compile": {
-          "ref/netstandard2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "System.Text.Encoding/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1127,25 +1033,10 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Microsoft.Data.DataView/0.10.0": {
-      "sha512": "PlCuDg2AbOyvQxpqHP+W0rIaTIagyUCFvuVs3fhl3w053t3R8mhJxVuxcEAmJEockKnH3i2Pflby2z+o2nHEmA==",
+    "Microsoft.ML/1.0.0": {
+      "sha512": "4XPRDLP4sgXbSJXoaNvp4iEeCP+fIs2VCtCrIFCBMLfFmHV0F4R84UBR0C/W82kLE4Y1G8hu3YoAU+Q5jsRQ8g==",
       "type": "package",
-      "path": "microsoft.data.dataview/0.10.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard2.0/Microsoft.Data.DataView.dll",
-        "lib/netstandard2.0/Microsoft.Data.DataView.xml",
-        "microsoft.data.dataview.0.10.0.nupkg.sha512",
-        "microsoft.data.dataview.nuspec"
-      ]
-    },
-    "Microsoft.ML/0.10.0": {
-      "sha512": "tw/V20BFkcWNX91gHAEARiOoBBUXrFFHkB9uL6xH7SrfW8olc4s0zKdrypXcd9w/2ixpZzrIVvlCiqasS/ZLfg==",
-      "type": "package",
-      "path": "microsoft.ml/0.10.0",
+      "path": "microsoft.ml/1.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1158,46 +1049,30 @@
         "lib/netstandard2.0/Microsoft.ML.Core.xml",
         "lib/netstandard2.0/Microsoft.ML.Data.dll",
         "lib/netstandard2.0/Microsoft.ML.Data.xml",
-        "lib/netstandard2.0/Microsoft.ML.Ensemble.dll",
-        "lib/netstandard2.0/Microsoft.ML.Ensemble.xml",
-        "lib/netstandard2.0/Microsoft.ML.FastTree.dll",
-        "lib/netstandard2.0/Microsoft.ML.FastTree.xml",
         "lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll",
         "lib/netstandard2.0/Microsoft.ML.KMeansClustering.xml",
-        "lib/netstandard2.0/Microsoft.ML.Maml.dll",
-        "lib/netstandard2.0/Microsoft.ML.Maml.xml",
         "lib/netstandard2.0/Microsoft.ML.PCA.dll",
         "lib/netstandard2.0/Microsoft.ML.PCA.xml",
-        "lib/netstandard2.0/Microsoft.ML.ResultProcessor.dll",
-        "lib/netstandard2.0/Microsoft.ML.ResultProcessor.xml",
-        "lib/netstandard2.0/Microsoft.ML.SamplesUtils.dll",
-        "lib/netstandard2.0/Microsoft.ML.SamplesUtils.xml",
-        "lib/netstandard2.0/Microsoft.ML.StandardLearners.dll",
-        "lib/netstandard2.0/Microsoft.ML.StandardLearners.xml",
-        "lib/netstandard2.0/Microsoft.ML.Sweeper.dll",
-        "lib/netstandard2.0/Microsoft.ML.Sweeper.xml",
+        "lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll",
+        "lib/netstandard2.0/Microsoft.ML.StandardTrainers.xml",
         "lib/netstandard2.0/Microsoft.ML.Transforms.dll",
         "lib/netstandard2.0/Microsoft.ML.Transforms.xml",
-        "microsoft.ml.0.10.0.nupkg.sha512",
+        "microsoft.ml.1.0.0.nupkg.sha512",
         "microsoft.ml.nuspec",
         "runtimes/linux-x64/native/libFactorizationMachineNative.so",
-        "runtimes/linux-x64/native/libFastTreeNative.so",
         "runtimes/linux-x64/native/libLdaNative.so",
         "runtimes/osx-x64/native/libFactorizationMachineNative.dylib",
-        "runtimes/osx-x64/native/libFastTreeNative.dylib",
         "runtimes/osx-x64/native/libLdaNative.dylib",
         "runtimes/win-x64/native/FactorizationMachineNative.dll",
-        "runtimes/win-x64/native/FastTreeNative.dll",
         "runtimes/win-x64/native/LdaNative.dll",
         "runtimes/win-x86/native/FactorizationMachineNative.dll",
-        "runtimes/win-x86/native/FastTreeNative.dll",
         "runtimes/win-x86/native/LdaNative.dll"
       ]
     },
-    "Microsoft.ML.CpuMath/0.10.0": {
-      "sha512": "6gcoE7IJ8/aKQJKtv5W8ct7Ocjz4FOUrU4kdWWUgACj29ZjsmLGAawal8FMTjgEYqBpcAB53BXrOvAsH6HYwzA==",
+    "Microsoft.ML.CpuMath/1.0.0": {
+      "sha512": "uuRfukDjei0yFaEKxMoHHA6mnrTw5lYXuXVXywvBioM0l2cfOb5VR/0/YXi+tPryFdwaS5bA1zf5/624b8gK+Q==",
       "type": "package",
-      "path": "microsoft.ml.cpumath/0.10.0",
+      "path": "microsoft.ml.cpumath/1.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1206,12 +1081,27 @@
         "build/netstandard2.0/Microsoft.ML.CpuMath.props",
         "lib/netstandard2.0/Microsoft.ML.CpuMath.dll",
         "lib/netstandard2.0/Microsoft.ML.CpuMath.xml",
-        "microsoft.ml.cpumath.0.10.0.nupkg.sha512",
+        "microsoft.ml.cpumath.1.0.0.nupkg.sha512",
         "microsoft.ml.cpumath.nuspec",
         "runtimes/linux-x64/native/libCpuMathNative.so",
         "runtimes/osx-x64/native/libCpuMathNative.dylib",
         "runtimes/win-x64/native/CpuMathNative.dll",
         "runtimes/win-x86/native/CpuMathNative.dll"
+      ]
+    },
+    "Microsoft.ML.DataView/1.0.0": {
+      "sha512": "ywf1ohNe3J8LovjPb4oITbpZP1p12SrtqXy8x6qODQBZdzDdnHa69KH8A4xHtOjf8kk/tDZofIjT+HWs2s3L6A==",
+      "type": "package",
+      "path": "microsoft.ml.dataview/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard2.0/Microsoft.ML.DataView.dll",
+        "lib/netstandard2.0/Microsoft.ML.DataView.xml",
+        "microsoft.ml.dataview.1.0.0.nupkg.sha512",
+        "microsoft.ml.dataview.nuspec"
       ]
     },
     "Microsoft.NETCore.App/2.2.0": {
@@ -1954,40 +1844,6 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "System.ComponentModel.Composition/4.5.0": {
-      "sha512": "pOLRbg5l0P53ZWs8fAqiLPHb1fJum2H1XoWeO5XV6b/oCzRSSzz5LPtzDUZay2KCNWCn7w38zx1+swei210iJg==",
-      "type": "package",
-      "path": "system.componentmodel.composition/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/netcoreapp2.0/System.ComponentModel.Composition.dll",
-        "lib/netstandard2.0/System.ComponentModel.Composition.dll",
-        "lib/uap10.0.16299/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/netstandard2.0/System.ComponentModel.Composition.dll",
-        "ref/uap10.0.16299/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.componentmodel.composition.4.5.0.nupkg.sha512",
-        "system.componentmodel.composition.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.ComponentModel.Primitives/4.3.0": {
@@ -3551,112 +3407,6 @@
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
-    "System.Security.AccessControl/4.5.0": {
-      "sha512": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
-      "type": "package",
-      "path": "system.security.accesscontrol/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net46/System.Security.AccessControl.dll",
-        "lib/net461/System.Security.AccessControl.dll",
-        "lib/netstandard1.3/System.Security.AccessControl.dll",
-        "lib/netstandard2.0/System.Security.AccessControl.dll",
-        "lib/uap10.0.16299/_._",
-        "ref/net46/System.Security.AccessControl.dll",
-        "ref/net461/System.Security.AccessControl.dll",
-        "ref/net461/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/System.Security.AccessControl.dll",
-        "ref/netstandard1.3/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/de/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/es/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/fr/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/it/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/ja/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/ko/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/ru/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/zh-hans/System.Security.AccessControl.xml",
-        "ref/netstandard1.3/zh-hant/System.Security.AccessControl.xml",
-        "ref/netstandard2.0/System.Security.AccessControl.dll",
-        "ref/netstandard2.0/System.Security.AccessControl.xml",
-        "ref/uap10.0.16299/_._",
-        "runtimes/win/lib/net46/System.Security.AccessControl.dll",
-        "runtimes/win/lib/net461/System.Security.AccessControl.dll",
-        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
-        "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
-        "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.accesscontrol.4.5.0.nupkg.sha512",
-        "system.security.accesscontrol.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Security.Permissions/4.5.0": {
-      "sha512": "9gdyuARhUR7H+p5CjyUB/zPk7/Xut3wUSP8NJQB6iZr8L3XUXTMdoLeVAg9N4rqF8oIpE7MpdqHdDHQ7XgJe0g==",
-      "type": "package",
-      "path": "system.security.permissions/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Security.Permissions.dll",
-        "lib/netstandard2.0/System.Security.Permissions.dll",
-        "ref/net461/System.Security.Permissions.dll",
-        "ref/net461/System.Security.Permissions.xml",
-        "ref/netstandard2.0/System.Security.Permissions.dll",
-        "ref/netstandard2.0/System.Security.Permissions.xml",
-        "system.security.permissions.4.5.0.nupkg.sha512",
-        "system.security.permissions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
-    "System.Security.Principal.Windows/4.5.0": {
-      "sha512": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ==",
-      "type": "package",
-      "path": "system.security.principal.windows/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net46/System.Security.Principal.Windows.dll",
-        "lib/net461/System.Security.Principal.Windows.dll",
-        "lib/netstandard1.3/System.Security.Principal.Windows.dll",
-        "lib/netstandard2.0/System.Security.Principal.Windows.dll",
-        "lib/uap10.0.16299/_._",
-        "ref/net46/System.Security.Principal.Windows.dll",
-        "ref/net461/System.Security.Principal.Windows.dll",
-        "ref/net461/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/System.Security.Principal.Windows.dll",
-        "ref/netstandard1.3/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/es/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/fr/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/it/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/ja/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/ko/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/ru/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/zh-hans/System.Security.Principal.Windows.xml",
-        "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
-        "ref/netstandard2.0/System.Security.Principal.Windows.dll",
-        "ref/netstandard2.0/System.Security.Principal.Windows.xml",
-        "ref/uap10.0.16299/_._",
-        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
-        "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
-        "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
-        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
-        "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
-        "runtimes/win/lib/uap10.0.16299/_._",
-        "system.security.principal.windows.4.5.0.nupkg.sha512",
-        "system.security.principal.windows.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Text.Encoding/4.3.0": {
       "sha512": "BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "type": "package",
@@ -4165,7 +3915,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "Microsoft.ML >= 0.10.0",
+      "Microsoft.ML >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -4212,7 +3962,7 @@
         "dependencies": {
           "Microsoft.ML": {
             "target": "Package",
-            "version": "[0.10.0, )"
+            "version": "[1.0.0, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",

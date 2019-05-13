@@ -14,7 +14,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.ML" Version="0.10.0" />
+      <PackageReference Include="Microsoft.ML" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
