@@ -20,10 +20,10 @@ namespace AiTest
                 //clustering
                 //new IrisAiTest(),
                 //regression
-                //new SalaryAiTest(),
-                new PriceAiTest()
+                new SalaryAiTest(),
+                new PriceAiTest(),
                 //binary classification
-                //new SentimentAiTest(),
+                new SentimentAiTest()
                 //multi-class classification
                 //new IssueAiTest()
             };
