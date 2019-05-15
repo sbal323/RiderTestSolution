@@ -18,14 +18,14 @@ namespace AiTest
             var tests = new List<IAiTest>
             {
                 //clustering
-                //new IrisAiTest(),
+                new IrisAiTest(),
                 //regression
                 new SalaryAiTest(),
                 new PriceAiTest(),
                 //binary classification
-                new SentimentAiTest()
+                new SentimentAiTest(),
                 //multi-class classification
-                //new IssueAiTest()
+                new IssueAiTest()
             };
             foreach (var test in tests)
             {

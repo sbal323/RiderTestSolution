@@ -20,6 +20,9 @@ namespace AiTest.Tests
         {
             Console.WriteLine("=============== Regression task - Price Prediction ===============");
             IDataView dataView = _context.Data.LoadFromTextFile<TaxiTrip>($"{RootFolder}/{TrainDataFile}", hasHeader: true, separatorChar: ',');
+            //Sample code of removing extreme data like "outliers" for FareAmounts higher than $150 and lower than $1 which can be error-data 
+            //IDataView dataView = _context.Data.FilterRowsByColumn(baseTrainingDataView, nameof(TaxiTrip.FareAmount), lowerBound: 1, upperBound: 150);
+
             var dataProcessPipeline  = _context.Transforms.CopyColumns(outputColumnName: "Label", inputColumnName: nameof(TaxiTrip.FareAmount))
                 .Append(_context.Transforms.Categorical.OneHotEncoding(outputColumnName: "VendorIdEncoded", inputColumnName: nameof(TaxiTrip.VendorId)))
                 .Append(_context.Transforms.Categorical.OneHotEncoding(outputColumnName: "RateCodeEncoded", inputColumnName: nameof(TaxiTrip.RateCode)))
